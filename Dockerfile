@@ -4,7 +4,6 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 # Proje dosyalarını kopyala ve restore yap
-COPY ./web-app/*.csproj ./web-app/
 COPY ./web-app/*.sln ./web-app/
 RUN dotnet restore ./web-app
 
