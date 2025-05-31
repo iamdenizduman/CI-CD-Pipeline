@@ -3,14 +3,14 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Proje dosyalarını kopyala ve restore et
-COPY web-app/web-app.csproj web-app/
-RUN dotnet restore web-app/web-app.csproj
+COPY web-app/web-app/web-app.csproj web-app/web-app/
+RUN dotnet restore web-app/web-app/web-app.csproj
 
 # Tüm kaynak kodunu kopyala
-COPY web-app/. web-app/
+COPY web-app/web-app/. web-app/web-app/
 
 # Publish (release modunda)
-RUN dotnet publish web-app/web-app.csproj -c Release -o /app/publish
+RUN dotnet publish web-app/web-app/web-app.csproj -c Release -o /app/publish
 
 # Runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
