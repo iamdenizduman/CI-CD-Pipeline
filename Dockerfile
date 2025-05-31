@@ -1,25 +1,21 @@
-# 1. aşama: Build
+# Base image - build stage
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
 
-WORKDIR /app
+# Proje dosyalarını kopyala ve restore et
+COPY web-app/web-app.csproj web-app/
+RUN dotnet restore web-app/web-app.csproj
 
-# Proje dosyalarını kopyala ve restore yap
-COPY ./web-app/*.sln ./web-app/
-RUN dotnet restore ./web-app
+# Tüm kaynak kodunu kopyala
+COPY web-app/. web-app/
 
-# Projenin tamamını kopyala ve build et
-COPY ./web-app/. ./web-app/
-RUN dotnet publish ./web-app -c Release -o /app/publish /p:UseAppHost=false
+# Publish (release modunda)
+RUN dotnet publish web-app/web-app.csproj -c Release -o /app/publish
 
-# 2. aşama: Runtime image
+# Runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
-
 WORKDIR /app
-
 COPY --from=build /app/publish ./
 
-# Uygulama portunu expose et (örneğin 80)
-EXPOSE 80
-
-# Uygulamayı çalıştır
+# Uygulamayı başlat
 ENTRYPOINT ["dotnet", "web-app.dll"]
