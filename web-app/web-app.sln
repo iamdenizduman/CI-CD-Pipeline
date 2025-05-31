@@ -5,14 +5,7 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "web-app", "web-app\web-app.csproj", "{80D8BB91-4933-412F-92DB-4A7EA58CA074}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{A576390D-C4CF-471A-8EC2-0AA7FD44FDDF}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{76B078D0-330B-4BD6-8042-0AFF5A2E1A23}"
-	ProjectSection(SolutionItems) = preProject
-		build-and-test.yml = build-and-test.yml
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web-app-test", "web-app-test\web-app-test.csproj", "{99196677-D777-42C4-AA24-7D9FB52C1CB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "web-app-test", "web-app-test\web-app-test.csproj", "{99196677-D777-42C4-AA24-7D9FB52C1CB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,9 +24,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{76B078D0-330B-4BD6-8042-0AFF5A2E1A23} = {A576390D-C4CF-471A-8EC2-0AA7FD44FDDF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C8385B4-FCAB-41C3-845E-576F5EF4DA25}
