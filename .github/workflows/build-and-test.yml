@@ -10,11 +10,11 @@ jobs:
   check-secret:
     runs-on: ubuntu-latest
     steps:
-      - name: Check if USER secret is set and not empty
+      - name: Check if DOCKER_USERNAME secret is set
         run: |
-          if [ -z "${{ secrets.DOCKER_USERNAME }}" ]; then
-            echo "secrets.DOCKER_USERNAME secret is empty or not set"
+          if [ -z "$DOCKER_USERNAME" ]; then
+            echo "DOCKER_USERNAME secret is empty or not set"
             exit 1
           else
-            echo "USER secret is set"
+            echo "DOCKER_USERNAME secret is set"
           fi
