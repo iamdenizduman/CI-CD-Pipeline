@@ -54,5 +54,6 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
+          working-directory: ./web-app
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/webapp:latest
