@@ -5,6 +5,7 @@ WORKDIR /app
 
 # Proje dosyalarını kopyala ve restore yap
 COPY ./web-app/*.csproj ./web-app/
+COPY ./web-app/*.sln ./web-app/
 RUN dotnet restore ./web-app
 
 # Projenin tamamını kopyala ve build et
