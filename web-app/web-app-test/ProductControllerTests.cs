@@ -40,23 +40,5 @@ namespace web_app_test
             // Assert
             Assert.IsType<NotFoundResult>(result);
         }
-        [Fact]
-        public void False_GetById_ProductDoesNotExist_ReturnsNotFound()
-        {
-            // Arrange
-            var mockService = new Mock<IProductService>();
-            var product = new Product { Id = 1, Name = "Test Product" };
-            mockService.Setup(s => s.GetById(1)).Returns(product);
-
-            var controller = new ProductsController(mockService.Object);
-
-            // Act
-            var result = controller.GetById(2);
-
-            // Assert
-            var okResult = Assert.IsType<OkObjectResult>(result);
-            var returnedProduct = Assert.IsType<Product>(okResult.Value);
-            Assert.Equal("Test Product", returnedProduct.Name);
-        }
     }
 }
