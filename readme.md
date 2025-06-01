@@ -48,29 +48,31 @@ Runner, bir GitHub Actions workflow’un içindeki işleri (jobs) fiziksel olara
 Event, GitHub Actions'da bir workflow’u tetikleyen (başlatan) olaydır.
 Örneğin: Bir kullanıcı kod push’ladığında,Pull request açıldığında,Issue oluşturulduğunda,Bir zamanlayıcı (cron) çalıştığında,Workflow elle başlatıldığında
 
-## Örnek Bir Projeyi Github Actions ile Dockerhub'a Deploy Etmek
+## 🚀 Örnek Bir Projeyi Github Actions ile Dockerhub'a Deploy Etmek
 
-1- Web api projeni oluştur (web-app)
-2- Web apini test edecek xUnit projeni oluştur (web-app-test)
-3- Örnek bir api yaz (ProductsController)
-4- web-app-test de birim testini yapabilmek için bağımlılıkları ekle (moq, microsoft.asnetcore.mvc)
-5- Test sınıfını yaz ProductControllerTests
-6- Projenin kök dizinine (.git ile aynı dizine) Dockerfile dosyanı oluştur. (./Dockerfile)
-7- Projenin kök dizinine yml dosyanı oluştur. (.github/workflows/build-and-test.yml)
-8- Projeyi pushla
+1️⃣ Web api projeni oluştur (`web-app`)  
+2️⃣ Web apini test edecek xUnit projeni oluştur (`web-app-test`)  
+3️⃣ Örnek bir api yaz (`ProductsController`)  
+4️⃣ `web-app-test` de birim testini yapabilmek için bağımlılıkları ekle (`moq`, `microsoft.aspnetcore.mvc`)  
+5️⃣ Test sınıfını yaz (`ProductControllerTests`)  
+6️⃣ Projenin kök dizinine (.git ile aynı dizine) Dockerfile dosyanı oluştur. (`./Dockerfile`)  
+7️⃣ Projenin kök dizinine yml dosyanı oluştur. (`.github/workflows/build-and-test.yml`)  
+8️⃣ Projeyi pushla ⬆️
 
-Önemli notlar;
+---
 
-1- build-and-test.yml dosyasında;
+## 📝 Önemli Notlar
 
-- on parametresi ile ne zaman hangi branch'ta çalışacağını belirledik
-- jobs ile adımları belirledik (github ubuntu ile çalıştırıyor)
-- steps ile sırasıyla gerekli bağımlılıkları yükledik bunların her biri actions olarak nitelendiriliyor ve github marketplace'de bulunuyor.
-- dockerhub'a bağlanıp push yapabilmek için secret bilgilerimizi github'da belirledikten sonra burada çağırıyoruz.
+### ⚙️ 1- `build-and-test.yml` dosyasında:
 
-2- Dockerfile dosyasında;
+- 🕒 `on` parametresi ile ne zaman hangi branch'ta çalışacağını belirledik
+- 🧱 `jobs` ile adımları belirledik (GitHub Ubuntu ile çalıştırıyor)
+- 🔧 `steps` ile sırasıyla gerekli bağımlılıkları yükledik. Bunların her biri **actions** olarak nitelendiriliyor ve GitHub Marketplace'de bulunuyor.
+- 🔐 DockerHub'a bağlanıp push yapabilmek için **secret** bilgilerimizi GitHub'da belirledikten sonra burada çağırıyoruz.
 
-- Dotnet ile ilgili bağımlılıklar yazılıyor
-- .csproj kısmının olduğu klasör yapısı dockerfile'e göre konumlanıyor
-- dotnet publish komutu ile publish olup release çıkıyor
-- dotnet runtime ile de projeyi indiren bilgisayarlardas çalıştırılması sağlanıyor
+### 🐳 2- `Dockerfile` dosyasında:
+
+- 📦 Dotnet ile ilgili bağımlılıklar yazılıyor
+- 📁 `.csproj` kısmının olduğu klasör yapısı `Dockerfile`'a göre konumlanıyor
+- 🚀 `dotnet publish` komutu ile publish olup release çıkıyor
+- 🏃 `dotnet runtime` ile de projeyi indiren bilgisayarlarda çalıştırılması sağlanıyor
